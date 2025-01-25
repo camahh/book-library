@@ -22,7 +22,7 @@ const Sidebar = ({ session }: { session: Session }) => {
             width={37}
             height={37}
           />
-          <h1>BookWise</h1>
+          <h1>BookLibrary</h1>
         </div>
         <div className="mt-10 flex flex-col gap-5">
           {adminSideBarLinks.map((link) => {
