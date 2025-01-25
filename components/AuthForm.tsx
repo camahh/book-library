@@ -100,7 +100,7 @@ const AuthForm = <T extends FieldValues>({
                       <FileUpload
                         type={"image"}
                         accept="image/*"
-                        placeholder="Upload your ID"
+                        placeholder="Upload a file"
                         folder={"ids"}
                         variant="dark"
                         onFileChange={field.onChange}
@@ -123,7 +123,7 @@ const AuthForm = <T extends FieldValues>({
           ))}
 
           <Button type="submit" className="form-btn">
-            {isSignIn ? "Sign In" : "Sign Up"}
+            {isSignIn ? "Login" : "Sign Up"}
           </Button>
         </form>
       </Form>

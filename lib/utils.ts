@@ -6,4 +6,6 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // get initials, show only 2 signs
-export const getInitials = (name: string): string => name.split(" ").map(part => part[0]).join("").toUpperCase().slice(0, 2);
+export const getInitials = (fullName: string): string => fullName.split(" ").map(part => part[0]).join("").toUpperCase().slice(0, 2);
+
+export const getName = (fullName: string): string => fullName.split(" ")[0];
