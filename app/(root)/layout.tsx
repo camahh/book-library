@@ -19,7 +19,7 @@ const Layout = async ({ children }: { children: ReactNode }) => {
     const user = await db.select().from(users).where(eq(users.id, session?.user?.id)).limit(1);
     const today = new Date().toISOString().slice(0, 10);
 
-    if(user[0].lastActivityDate === today) return;
+    if(user[0]?.lastActivityDate === today) return;
 
     // update last activity date 
     // from user in database

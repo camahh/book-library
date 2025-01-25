@@ -23,9 +23,10 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { FIELD_NAMES, FIELD_TYPES } from "@/contants";
-import ImageUpload from "./ImageUpload";
+import ImageUpload from "./FileUpload";
 import { toast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
+import FileUpload from "./FileUpload";
 
 interface Props<T extends FieldValues> {
   schema: ZodType<T>;
@@ -51,18 +52,20 @@ const AuthForm = <T extends FieldValues>({
   const handleSubmit: SubmitHandler<T> = async (data) => {
     const result = await onSubmit(data);
 
-    if(result.success) {
+    if (result.success) {
       toast({
-        title: 'Success',
-        description: isSignIn ? 'You have successfully signed in!' : 'You have successfully signed up!'
+        title: "Success",
+        description: isSignIn
+          ? "You have successfully signed in!"
+          : "You have successfully signed up!",
       });
 
       router.push("/");
     } else {
       toast({
-        title: `Error ${isSignIn ? 'signing in' : 'signing up'}`,
+        title: `Error ${isSignIn ? "signing in" : "signing up"}`,
         description: result.error ?? "An error occured",
-        variant: 'destructive'
+        variant: "destructive",
       });
     }
   };
@@ -94,7 +97,14 @@ const AuthForm = <T extends FieldValues>({
                   </FormLabel>
                   <FormControl>
                     {field.name === "universityCard" ? (
-                      <ImageUpload onFileChange={field.onChange} />
+                      <FileUpload
+                        type={"image"}
+                        accept="image/*"
+                        placeholder="Upload your ID"
+                        folder={"ids"}
+                        variant="dark"
+                        onFileChange={field.onChange}
+                      />
                     ) : (
                       <Input
                         required

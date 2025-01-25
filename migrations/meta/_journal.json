@@ -8,6 +8,20 @@
       "when": 1737469999151,
       "tag": "0000_exotic_giant_girl",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1737668450188,
+      "tag": "0001_strange_alex_wilder",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1737809668260,
+      "tag": "0002_pretty_warbound",
+      "breakpoints": true
     }
   ]
 }
